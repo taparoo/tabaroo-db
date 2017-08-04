@@ -1,6 +1,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema
   .createTable("on_tap", table => {
+    table.increments("id");
     table.integer("beer_one_id").references("beer.id").unsigned().onDelete("cascade");
     table.integer("beer_two_id").references("beer.id").unsigned().onDelete("cascade");
     table.integer("cooler_beer_id").references("beer.id").unsigned().onDelete("cascade");
