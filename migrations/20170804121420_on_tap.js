@@ -2,11 +2,14 @@ exports.up = function(knex, Promise) {
   return knex.schema
   .createTable("on-tap", table => {
     table.increments("id");
-    table.integer("beer_one_id").references("beer.id").unsigned().onDelete("cascade");
-    table.integer("beer_two_id").references("beer.id").unsigned().onDelete("cascade");
-    table.integer("cooler_beer_id").references("beer.id").unsigned().onDelete("cascade");
-
-
+    table.string("name");
+    table.string("type");
+    table.string("brewery");
+    table.float("abv", [2]);
+    table.string("bar");
+    table.integer("user_id").references("user.id").unsigned().onDelete("cascade");
+    table.text("description");
+    table.text("image_url").defaultTo("http://www.beertastes.com/img/beericon.png");
   });
 };
 
