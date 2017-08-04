@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
     table.integer("user_id").references("user.id").unsigned().onDelete("cascade");
     table.text("description");
     table.text("image_url").defaultTo("http://www.beertastes.com/img/beericon.png");
+    table.boolean('on_tap').defaultTo(false).notNull();
   });
 };
 
