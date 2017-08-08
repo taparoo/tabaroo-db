@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
     table.string("brewery");
     table.float("abv", [2]);
     table.string("bar");
+    table.string("tap").defaultTo("off");
     table.integer("user_id").references("user.id").unsigned().onDelete("cascade");
     table.text("description");
     table.text("image_url").defaultTo("http://www.beertastes.com/img/beericon.png");
